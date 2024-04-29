@@ -1,5 +1,8 @@
 FROM node:20
 
+ENV TZ=America/Lima
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 WORKDIR /usr/src/app
 COPY . .
 
