@@ -89,7 +89,7 @@ export default function TableAttendantsStatus(props) {
                 <TableBody>
                     { renderList() }
                     {/* <TableRow>
-                        <TableCell>Nome 4</TableCell>
+                        <TableCell>Nombre 4</TableCell>
                         <TableCell align="center">10</TableCell>
                         <TableCell align="center">10 minutos</TableCell>
                         <TableCell align="center">
@@ -97,7 +97,7 @@ export default function TableAttendantsStatus(props) {
                         </TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>Nome 5</TableCell>
+                        <TableCell>Nombre 5</TableCell>
                         <TableCell align="center">10</TableCell>
                         <TableCell align="center">10 minutos</TableCell>
                         <TableCell align="center">
