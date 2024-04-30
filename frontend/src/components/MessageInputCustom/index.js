@@ -581,13 +581,13 @@ const MessageInputCustom = (props) => {
             setMedias([])
             setPercentLoading(0);
             console.log(
-              `A imagem á foi enviada para o servidor!`
+              `La imagen ya ha sido enviada al servidor!`
 
             );
           })
           .catch((err) => {
             console.error(
-              `Houve um problema ao realizar o upload da imagem.`
+              `Hubo un problema al cargar la imagen.`
             );
             console.log(err);
           });
