@@ -287,7 +287,7 @@ export default function Options(props) {
         <Grid xs={12} sm={6} md={4} item>
           <FormControl className={classes.selectContainer}>
             <InputLabel id="call-type-label">
-              Aceitar Chamada
+              Aceptar Llamada
             </InputLabel>
             <Select
               labelId="call-type-label"
