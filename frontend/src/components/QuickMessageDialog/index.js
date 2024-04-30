@@ -104,7 +104,7 @@ function QuickMessageDialog(props) {
 
     return (
         <Dialog
-            title="Mensagem Rápida"
+            title="Mensaje rápido"
             modalOpen={dialogOpen}
             onClose={handleClose}
         >
