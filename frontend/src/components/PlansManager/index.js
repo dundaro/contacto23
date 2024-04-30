@@ -124,8 +124,8 @@ export function PlanManagerForm(props) {
                                 name="isPublic"
                                 margin="dense"
                             >
-                                <MenuItem value={true}>Sim</MenuItem>
-                                <MenuItem value={false}>Não</MenuItem>
+                                <MenuItem value={true}>Si</MenuItem>
+                                <MenuItem value={false}>No</MenuItem>
                             </Field>
                             </FormControl>
                         </Grid>
@@ -232,7 +232,7 @@ export function PlansManagerGrid(props) {
                             </TableCell>
                             <TableCell align="left">{row.name || '-'}</TableCell>
                             <TableCell align="center">{row.users || '-'}</TableCell>
-                            <TableCell align="center">{row.isPublic ? "Sim": "Não" || '-'}</TableCell>
+                            <TableCell align="center">{row.isPublic ? "Si": "No" || '-'}</TableCell>
                             <TableCell align="center">{row.connections || '-'}</TableCell>
                             <TableCell align="center">{row.queues || '-'}</TableCell>
                             <TableCell align="center">{row.value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) || '-'}</TableCell>
@@ -274,7 +274,7 @@ export default function PlansManager() {
             console.log(planList)
             setRecords(planList)
         } catch (e) {
-            toast.error('Não foi possível carregar a lista de registros')
+            toast.error('No fue posíble cargar la lista de registros')
         }
         setLoading(false)
     }
