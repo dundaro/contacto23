@@ -99,7 +99,7 @@ const CampaignModal = ({
     confirmationMessage3: "",
     confirmationMessage4: "",
     confirmationMessage5: "",
-    status: "INATIVA", // INACTIVA, PROGRAMADA, EN_PROCESO, CANCELADA, FINALIZADA,
+    status: "INACTIVA", // INACTIVA, PROGRAMADA, EN_PROCESO, CANCELADA, FINALIZADA,
     confirmation: false,
     scheduledAt: "",
     whatsappId: "",
