@@ -145,7 +145,7 @@ export function CompanyForm(props) {
     const data = { ...record };
     if (data.dueDate !== "" && data.dueDate !== null) {
       switch (data.recurrence) {
-        case "MENSAL":
+        case "MENSUAL":
           data.dueDate = moment(data.dueDate)
             .add(1, "month")
             .format("YYYY-MM-DD");
@@ -202,7 +202,7 @@ export function CompanyForm(props) {
               <Grid xs={12} sm={6} md={4} item>
                 <Field
                   as={TextField}
-                  label="Nome"
+                  label="Nombre"
                   name="name"
                   variant="outlined"
                   className={classes.fullWidth}
@@ -223,7 +223,7 @@ export function CompanyForm(props) {
               <Grid xs={12} sm={6} md={2} item>
                 <Field
                   as={TextField}
-                  label="Telefone"
+                  label="Telefono"
                   name="phone"
                   variant="outlined"
                   className={classes.fullWidth}
@@ -236,7 +236,7 @@ export function CompanyForm(props) {
                   <Field
                     as={Select}
                     id="plan-selection"
-                    label="Plano"
+                    label="Plan"
                     labelId="plan-selection-label"
                     name="planId"
                     margin="dense"
@@ -272,13 +272,13 @@ export function CompanyForm(props) {
                   <Field
                     as={Select}
                     id="campaigns-selection"
-                    label="Campanhas"
+                    label="Campañas"
                     labelId="campaigns-selection-label"
                     name="campaignsEnabled"
                     margin="dense"
                   >
                     <MenuItem value={true}>Habilitadas</MenuItem>
-                    <MenuItem value={false}>Desabilitadas</MenuItem>
+                    <MenuItem value={false}>Deshabilitadas</MenuItem>
                   </Field>
                 </FormControl>
               </Grid>
@@ -286,7 +286,7 @@ export function CompanyForm(props) {
                 <FormControl variant="outlined" fullWidth>
                   <Field
                     as={TextField}
-                    label="Data de Vencimento"
+                    label="Fecha de Vencimento"
                     type="date"
                     name="dueDate"
                     InputLabelProps={{
@@ -301,11 +301,11 @@ export function CompanyForm(props) {
               <Grid xs={12} sm={6} md={2} item>
                 <FormControl margin="dense" variant="outlined" fullWidth>
                   <InputLabel htmlFor="recorrencia-selection">
-                    Recorrência
+                    Recurrencia
                   </InputLabel>
                   <Field
                     as={Select}
-                    label="Recorrência"
+                    label="Recurrencia"
                     labelId="recorrencia-selection-label"
                     id="recurrence"
                     name="recurrence"
@@ -329,7 +329,7 @@ export function CompanyForm(props) {
                       onClick={() => onCancel()}
                       variant="contained"
                     >
-                      Limpar
+                      Limpiar
                     </ButtonWithSpinner>
                   </Grid>
                   {record.id !== undefined ? (
@@ -343,7 +343,7 @@ export function CompanyForm(props) {
                           variant="contained"
                           color="secondary"
                         >
-                          Excluir
+                          Borrar
                         </ButtonWithSpinner>
                       </Grid>
                       <Grid xs={6} md={2} item>
@@ -367,7 +367,7 @@ export function CompanyForm(props) {
                           variant="contained"
                           color="primary"
                         >
-                          Usuário
+                          Usuario
                         </ButtonWithSpinner>
                       </Grid>
                     </>
@@ -381,7 +381,7 @@ export function CompanyForm(props) {
                       variant="contained"
                       color="primary"
                     >
-                      Salvar
+                     Guardar
                     </ButtonWithSpinner>
                   </Grid>
                 </Grid>
@@ -451,13 +451,13 @@ export function CompaniesManagerGrid(props) {
             <TableCell align="center" style={{ width: "1%" }}>
               #
             </TableCell>
-            <TableCell align="left">Nome</TableCell>
+            <TableCell align="left">Nombre</TableCell>
             <TableCell align="left">E-mail</TableCell>
-            <TableCell align="left">Telefone</TableCell>
-            <TableCell align="left">Plano</TableCell>
-            <TableCell align="left">Campanhas</TableCell>
+            <TableCell align="left">Telefono</TableCell>
+            <TableCell align="left">Plan</TableCell>
+            <TableCell align="left">Campañas</TableCell>
             <TableCell align="left">Status</TableCell>
-            <TableCell align="left">Criada Em</TableCell>
+            <TableCell align="left">Creado en</TableCell>
             <TableCell align="left">Vencimento</TableCell>
           </TableRow>
         </TableHead>
@@ -518,7 +518,7 @@ export default function CompaniesManager() {
       const companyList = await list();
       setRecords(companyList);
     } catch (e) {
-      toast.error("Não foi possível carregar a lista de registros");
+      toast.error("No es posible cargar la lista de registros");
     }
     setLoading(false);
   };
@@ -536,7 +536,7 @@ export default function CompaniesManager() {
       toast.success("Operação realizada com sucesso!");
     } catch (e) {
       toast.error(
-        "Não foi possível realizar a operação. Verifique se já existe uma empresa com o mesmo nome ou se os campos foram preenchidos corretamente"
+        "No fue posible realizar la operacion. Verifique si ya existe una empresa con el mismo nombre o si los campos se rellenaron correctamente"
       );
     }
     setLoading(false);
@@ -548,9 +548,9 @@ export default function CompaniesManager() {
       await remove(record.id);
       await loadPlans();
       handleCancel();
-      toast.success("Operação realizada com sucesso!");
+      toast.success("¡Operación realizada con éxito!");
     } catch (e) {
-      toast.error("Não foi possível realizar a operação");
+      toast.error("La operación no se pudo realizar");
     }
     setLoading(false);
   };
@@ -615,12 +615,12 @@ export default function CompaniesManager() {
         </Grid>
       </Grid>
       <ConfirmationModal
-        title="Exclusão de Registro"
+        title="Eliminación de registro"
         open={showConfirmDialog}
         onClose={() => setShowConfirmDialog(false)}
         onConfirm={() => handleDelete()}
       >
-        Deseja realmente excluir esse registro?
+        Deseja realmente eliminar este registro?
       </ConfirmationModal>
     </Paper>
   );
