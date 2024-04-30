@@ -231,7 +231,7 @@ const QueueModal = ({ open, onClose, queueId }) => {
           aria-label="disabled tabs example"
         >
           <Tab label="Dados da Fila" />
-          {schedulesEnabled && <Tab label="Horas de servicio" />}
+          {schedulesEnabled && <Tab label="Hora de servicio" />}
         </Tabs>
         {tab === 0 && (
           <Paper>
