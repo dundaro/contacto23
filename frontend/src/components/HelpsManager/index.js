@@ -217,7 +217,7 @@ export default function HelpsManager () {
             }
             await loadHelps()
             handleCancel()
-            toast.success('Operação realizada com sucesso!')
+            toast.success('Operación realizada con éxito!')
         } catch (e) {
             toast.error('No se pudo realizar la operación. Comprueba si ya existe una ayuda con el mismo nombre o si los campos se rellenaron correctamente')
         }
