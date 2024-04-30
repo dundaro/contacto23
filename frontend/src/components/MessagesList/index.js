@@ -878,8 +878,8 @@ const MessagesList = ({ ticket, ticketId, isGroup }) => {
           )}
 
           <span>
-            Você tem 24h para responder após receber uma mensagem, de acordo
-            com as políticas do Facebook.
+            Tienes 24 horas para responder después de recibir un mensaje, según
+            con las políticas de facebook.
           </span>
         </div>
       )}
