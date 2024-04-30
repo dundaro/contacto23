@@ -232,7 +232,7 @@ export function CompanyForm(props) {
               </Grid>
               <Grid xs={12} sm={6} md={2} item>
                 <FormControl margin="dense" variant="outlined" fullWidth>
-                  <InputLabel htmlFor="plan-selection">Plano</InputLabel>
+                  <InputLabel htmlFor="plan-selection">Plan</InputLabel>
                   <Field
                     as={Select}
                     id="plan-selection"
@@ -261,14 +261,14 @@ export function CompanyForm(props) {
                     name="status"
                     margin="dense"
                   >
-                    <MenuItem value={true}>Sim</MenuItem>
-                    <MenuItem value={false}>Não</MenuItem>
+                    <MenuItem value={true}>Si</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
                   </Field>
                 </FormControl>
               </Grid>
               <Grid xs={12} sm={6} md={2} item>
                 <FormControl margin="dense" variant="outlined" fullWidth>
-                  <InputLabel htmlFor="status-selection">Campanhas</InputLabel>
+                  <InputLabel htmlFor="status-selection">Campañas</InputLabel>
                   <Field
                     as={Select}
                     id="campaigns-selection"
@@ -415,7 +415,7 @@ export function CompaniesManagerGrid(props) {
     ) {
       const setting = row.settings.find((s) => s.key === "campaignsEnabled");
       if (setting) {
-        return setting.value === "true" ? "Habilitadas" : "Desabilitadas";
+        return setting.value === "true" ? "Habilitadas" : "Deshabilitadas";
       }
     }
     return "Desabilitadas";
