@@ -99,7 +99,7 @@ const CampaignModal = ({
     confirmationMessage3: "",
     confirmationMessage4: "",
     confirmationMessage5: "",
-    status: "INATIVA", // INATIVA, PROGRAMADA, EM_ANDAMENTO, CANCELADA, FINALIZADA,
+    status: "INATIVA", // INACTIVA, PROGRAMADA, EN_PROCESO, CANCELADA, FINALIZADA,
     confirmation: false,
     scheduledAt: "",
     whatsappId: "",
@@ -164,7 +164,7 @@ const CampaignModal = ({
     const moreThenAnHour =
       !Number.isNaN(scheduledAt.diff(now)) && scheduledAt.diff(now, "hour") > 1;
     const isEditable =
-      campaign.status === "INATIVA" ||
+      campaign.status === "INACTIVA" ||
       (campaign.status === "PROGRAMADA" && moreThenAnHour);
 
     setCampaignEditable(isEditable);
@@ -247,7 +247,7 @@ const CampaignModal = ({
         placeholder={i18n.t("campaigns.dialog.form.messagePlaceholder")}
         multiline={true}
         variant="outlined"
-        helperText="Utilize variáveis como {nome}, {numero}, {email} ou defina variáveis personalziadas."
+        helperText="Utilize variables como {nombre}, {numero}, {email} o defina varibles personalizadas."
         disabled={!campaignEditable && campaign.status !== "CANCELADA"}
       />
     );
@@ -380,7 +380,7 @@ const CampaignModal = ({
                         }
                         disabled={!campaignEditable}
                       >
-                        <MenuItem value={false}>Desabilitada</MenuItem>
+                        <MenuItem value={false}>Deshabilitada</MenuItem>
                         <MenuItem value={true}>Habilitada</MenuItem>
                       </Field>
                     </FormControl>
@@ -409,7 +409,7 @@ const CampaignModal = ({
                         }
                         disabled={!campaignEditable}
                       >
-                        <MenuItem value="">Nenhuma</MenuItem>
+                        <MenuItem value="">Ninguno</MenuItem>
                         {contactLists &&
                           contactLists.map((contactList) => (
                             <MenuItem
@@ -442,7 +442,7 @@ const CampaignModal = ({
                         error={touched.whatsappId && Boolean(errors.whatsappId)}
                         disabled={!campaignEditable}
                       >
-                        <MenuItem value="">Nenhuma</MenuItem>
+                        <MenuItem value="">Ninguno</MenuItem>
                         {whatsapps &&
                           whatsapps.map((whatsapp) => (
                             <MenuItem key={whatsapp.id} value={whatsapp.id}>
@@ -622,7 +622,7 @@ const CampaignModal = ({
                     {i18n.t("campaigns.dialog.buttons.restart")}
                   </Button>
                 )}
-                {campaign.status === "EM_ANDAMENTO" && (
+                {campaign.status === "EN_PROCESO" && (
                   <Button
                     color="primary"
                     onClick={() => cancelCampaign()}
