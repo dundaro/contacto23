@@ -72,7 +72,7 @@ function QuickMessagesTable(props) {
                     <TableCell align="center">Atajo</TableCell>
                     <TableCell align="left">Mensage</TableCell>
                     { !readOnly ? (
-                        <TableCell align="center">Accioness</TableCell>
+                        <TableCell align="center">Comparte</TableCell>
                     ) : null}
                 </TableRow>
             </TableHead>
