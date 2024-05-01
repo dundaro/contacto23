@@ -266,12 +266,12 @@ const TicketListItemCustom = ({ ticket, setTabOpen }) => {
                 top: -6,
                 marginRight: 3
               }}
-              badgeContent={ticket.queue?.name || "Sem fila"}
+              badgeContent={ticket.queue?.name || "Sin cola"}
             //color="primary"
             />
           )}
           {ticket.status === "open" && (
-            <Tooltip title="Fechar Conversa">
+            <Tooltip title="Conversación privada">
               <ClearOutlinedIcon
                 onClick={() => handleCloseTicket(ticket.id)}
                 fontSize="small"
@@ -365,7 +365,7 @@ const TicketListItemCustom = ({ ticket, setTabOpen }) => {
             />
           )}
           {ticket.status === "pending" && (
-            <Tooltip title="Fechar Conversa">
+            <Tooltip title="Conversación privada">
               <ClearOutlinedIcon
                 onClick={() => handleCloseTicket(ticket.id)}
                 fontSize="small"
@@ -395,7 +395,7 @@ const TicketListItemCustom = ({ ticket, setTabOpen }) => {
             </Tooltip>
           )}
           {ticket.status === "open" && (
-            <Tooltip title="Fechar Conversa">
+            <Tooltip title="Conversación privada">
               <ClearOutlinedIcon
                 onClick={() => handleCloseTicket(ticket.id)}
                 fontSize="small"
@@ -411,7 +411,7 @@ const TicketListItemCustom = ({ ticket, setTabOpen }) => {
             </Tooltip>
           )}
           {ticket.status === "pending" && (
-            <Tooltip title="Aceitar Conversa">
+            <Tooltip title="Aceptar conversación">
               <DoneIcon
                 onClick={() => handleAcceptTicket(ticket.id)}
                 fontSize="small"
