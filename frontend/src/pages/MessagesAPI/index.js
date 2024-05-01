@@ -280,19 +280,19 @@ const MessagesAPI = () => {
             <p>A continuación se muestra la lista de información necesaria para enviar mensajes de texto:</p>
             <b>Endpoint: </b> {getEndpoint()} <br />
             <b>Método: </b> POST <br />
-            <b>Headers: </b> X_TOKEN (token cadastrado) e Content-Type (application/json) <br />
+            <b>Headers: </b> X_TOKEN (token registrado) es Content-Type (application/json) <br />
             <b>Body: </b> {"{ \"number\": \"5117007980\", \"body\": \"Su mensage\" }"}
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
           <Typography className={classes.elementMargin}>
-            <b>Teste de Envio</b>
+            <b>Prueba de Envio</b>
           </Typography>
           {renderFormMessageText()}
         </Grid>
       </Grid>
       <Typography variant="h6" color="primary" className={classes.elementMargin}>
-        2. Mensagens de Media
+        2. Mensages de Media
       </Typography>
       <Grid container>
         <Grid item xs={12} sm={6}>
@@ -300,7 +300,7 @@ const MessagesAPI = () => {
             <p>A continuación se muestra la lista de información necesaria para enviar mensajes de texto:</p>
             <b>Endpoint: </b> {getEndpoint()} <br />
             <b>Método: </b> POST <br />
-            <b>Headers: </b> X_TOKEN (token cadastrado) e Content-Type (multipart/form-data) <br />
+            <b>Headers: </b> X_TOKEN (token registrado) es Content-Type (multipart/form-data) <br />
             <b>FormData: </b> <br />
             <ul>
               <li>
@@ -314,7 +314,7 @@ const MessagesAPI = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Typography className={classes.elementMargin}>
-            <b>Teste de Envio</b>
+            <b>Prueba de envio</b>
           </Typography>
           {renderFormMessageMedia()}
         </Grid>
