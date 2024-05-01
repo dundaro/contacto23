@@ -301,10 +301,10 @@ const Announcements = () => {
                     {translatePriority(announcement.priority)}
                   </TableCell>
                   <TableCell align="center">
-                    {announcement.mediaName ?? "Sem anexo"}
+                    {announcement.mediaName ?? "Sin adjuntos"}
                   </TableCell>
                   <TableCell align="center">
-                    {announcement.status ? "ativo" : "inativo"}
+                    {announcement.status ? "activo" : "inactivo"}
                   </TableCell>
                   <TableCell align="center">
                     <IconButton
