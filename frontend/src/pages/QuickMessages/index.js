@@ -80,7 +80,7 @@ function QuickMessages(props) {
     try {
       await saveMessage(message);
       await loadingQuickMessages();
-      toast.success("Messagem adicionada com sucesso.");
+      toast.success("Mensaje agregado exitosamente.");
     } catch (e) {
       toast.error(e);
     }
@@ -91,7 +91,7 @@ function QuickMessages(props) {
     try {
       await updateMessage(message);
       await loadingQuickMessages();
-      toast.success("Messagem atualizada com sucesso.");
+      toast.success("Mensaje actualizado exitosamente.");
     } catch (e) {
       toast.error(e);
     }
@@ -102,7 +102,7 @@ function QuickMessages(props) {
     try {
       await deleteMessage(message.id);
       await loadingQuickMessages();
-      toast.success("Messagem excluída com sucesso.");
+      toast.success("Mensaje eliminado exitosamente.");
     } catch (e) {
       toast.error(e);
     }
