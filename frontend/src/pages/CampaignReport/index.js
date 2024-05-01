@@ -131,12 +131,12 @@ const CampaignReport = () => {
 
   const formatStatus = (val) => {
     switch (val) {
-      case "INATIVA":
-        return "Inativa";
+      case "INACTIVA":
+        return "Inactiva";
       case "PROGRAMADA":
         return "Programada";
-      case "EM_ANDAMENTO":
-        return "Em Andamento";
+      case "En_PROCESO":
+        return "En Proceso";
       case "CANCELADA":
         return "Cancelada";
       case "FINALIZADA":
@@ -170,7 +170,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<GroupIcon fontSize="inherit" />}
-              title="Contatos Válidos"
+              title="Contactos Válidos"
               value={validContacts}
               loading={loading}
             />
@@ -180,7 +180,7 @@ const CampaignReport = () => {
               <Grid xs={12} md={4} item>
                 <CardCounter
                   icon={<DoneIcon fontSize="inherit" />}
-                  title="Confirmações Solicitadas"
+                  title="Confirmaciones solicitadas"
                   value={confirmationRequested}
                   loading={loading}
                 />
@@ -188,7 +188,7 @@ const CampaignReport = () => {
               <Grid xs={12} md={4} item>
                 <CardCounter
                   icon={<DoneAllIcon fontSize="inherit" />}
-                  title="Confirmações"
+                  title="Confirmaciones"
                   value={confirmed}
                   loading={loading}
                 />
@@ -198,7 +198,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<CheckCircleIcon fontSize="inherit" />}
-              title="Entregues"
+              title="Entregados"
               value={delivered}
               loading={loading}
             />
@@ -207,7 +207,7 @@ const CampaignReport = () => {
             <Grid xs={12} md={4} item>
               <CardCounter
                 icon={<WhatsAppIcon fontSize="inherit" />}
-                title="Conexão"
+                title="Conexion"
                 value={campaign.whatsapp.name}
                 loading={loading}
               />
@@ -217,7 +217,7 @@ const CampaignReport = () => {
             <Grid xs={12} md={4} item>
               <CardCounter
                 icon={<ListAltIcon fontSize="inherit" />}
-                title="Lista de Contatos"
+                title="Lista de Contactos"
                 value={campaign.contactList.name}
                 loading={loading}
               />
@@ -226,7 +226,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<ScheduleIcon fontSize="inherit" />}
-              title="Agendamento"
+              title="Planificacion"
               value={datetimeToClient(campaign.scheduledAt)}
               loading={loading}
             />
@@ -234,7 +234,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<EventAvailableIcon fontSize="inherit" />}
-              title="Conclusão"
+              title="Concluidos"
               value={datetimeToClient(campaign.completedAt)}
               loading={loading}
             />
