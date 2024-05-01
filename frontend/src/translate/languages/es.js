@@ -394,14 +394,14 @@ const messages = {
         searchPlaceholder: "Búsqueda",
         subMenus: {
           list: "Panel",
-          tags: "Lanes",
+          tags: "Carriles",
         },
       },
       tagsKanban: {
-        title: "Lanes",
+        title: "Carriles",
         laneDefault: "En abierto",
         confirmationModal: {
-          deleteTitle: "¿Estás seguro de que quieres eliminar esta Lane?",
+          deleteTitle: "¿Estás seguro de que quieres eliminar este carril?",
           deleteMessage: "Esta acción no se puede deshacer.",
         },
         table: {
@@ -414,7 +414,7 @@ const messages = {
           add: "Nuevo carril",
         },
         toasts: {
-          deleted: "carril eliminado con éxito.",
+          deleted: "Carril eliminado con éxito.",
         },
       },
       contactLists: {
