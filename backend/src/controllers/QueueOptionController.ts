@@ -71,7 +71,7 @@ export const remove = async (
 
   await DeleteService(queueOptionId);
 
-  return res.status(200).json({ message: "Option Delected" });
+  return res.status(200).json({ message: "Opcion Seleccionada" });
 };
 
 export const mediaUpload = async (
@@ -90,7 +90,7 @@ export const mediaUpload = async (
       mediaName: file.originalname
     });
    
-    return res.send({ mensagem: "Arquivo Salvo" });
+    return res.send({ mensagem: "Arcuivo Guardado" });
   } catch (err: any) {
     throw new AppError(err.message);
   }
@@ -113,7 +113,7 @@ export const deleteMedia = async (
     queue.mediaPath = null;
     queue.mediaName = null;
     await queue.save();
-    return res.send({ mensagem: "Arquivo excluído" });
+    return res.send({ mensagem: "Archivo eliminado" });
   } catch (err: any) {
     throw new AppError(err.message);
   }
