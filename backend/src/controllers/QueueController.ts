@@ -137,7 +137,7 @@ export const deleteMedia = async (
     queue.mediaPath = null;
     queue.mediaName = null;
     await queue.save();
-    return res.send({ mensagem: "Arquivo excluído" });
+    return res.send({ mensagem: "Archivo excluido" });
   } catch (err: any) {
     throw new AppError(err.message);
   }
