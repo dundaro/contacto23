@@ -3,7 +3,7 @@ import Contact from "../models/Contact";
 import Ticket from "../models/Ticket";
 
 export const greeting = (): string => {
-  const greetings = ["Boa madrugada", "Bom dia", "Boa tarde", "Boa noite"];
+  const greetings = ["Buen dia", "Buenos dias", "Buenas tardes", "Buenas noches"];
   const h = new Date().getHours();
   // eslint-disable-next-line no-bitwise
   return greetings[(h / 6) >> 0];
@@ -22,16 +22,16 @@ export default (body: string, contact: Contact, ticket?: Ticket): string => {
   const ss: string = `0${Hr.getSeconds()}`.slice(-2);
 
   if (hh >= 6) {
-    ms = "Bom dia";
+    ms = "Buenos dias";
   }
   if (hh > 11) {
-    ms = "Boa tarde";
+    ms = "Buenas tardes";
   }
   if (hh > 17) {
-    ms = "Boa noite";
+    ms = "Buenas noches";
   }
   if (hh > 23 || hh < 6) {
-    ms = "Boa madrugada";
+    ms = "Buenos dias";
   }
 
   const setor =
