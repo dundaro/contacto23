@@ -233,7 +233,7 @@ export const sendMessageImage = async (
     sentMessage = await wbot.sendMessage(
       `${contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`,
       {
-        text: formatBody('Não consegui enviar o PDF, tente novamente!', contact)
+        text: formatBody('No es posible enviar PDF, intente nuevamente!', contact)
       }
     );
   }
@@ -261,7 +261,7 @@ export const sendMessageLink = async (
   } catch (error) {
     sentMessage = await wbot.sendMessage(
       `${contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, {
-      text: formatBody('Não consegui enviar o PDF, tente novamente!', contact)
+      text: formatBody('No es posible enviar el PDF, inténtalo de nuevo!', contact)
     }
     );
   }
@@ -351,7 +351,7 @@ export const getBodyMessage = (msg: proto.IWebMessageInfo): string | null => {
 ${JSON.stringify(msg)}`);
       Sentry.setExtra("Mensagem", { BodyMsg: msg.message, msg, type });
       Sentry.captureException(
-        new Error("Novo Tipo de Mensagem em getTypeMessage")
+        new Error("Nuevo Tipo de Mensage en getTypeMessage")
       );
     }
     return types[type];
@@ -472,7 +472,7 @@ const downloadMedia = async (msg: proto.IWebMessageInfo) => {
         setTimeout(resolve, 1000 * contDownload * 2)
       );
       logger.warn(
-        `>>>> erro ${contDownload} de baixar o arquivo ${msg?.key.id}`
+        `>>>> error ${contDownload} de bajar el archivo ${msg?.key.id}`
       );
     }
   }
@@ -843,10 +843,10 @@ const isValidMsg = (msg: proto.IWebMessageInfo): boolean => {
       msgType === "viewOnceMessage";
 
     if (!ifType) {
-      logger.warn(`#### Nao achou o type em isValidMsg: ${msgType}
+      logger.warn(`#### No encontré el tipo en isValidMsg: ${msgType}
 ${JSON.stringify(msg?.message)}`);
       Sentry.setExtra("Mensagem", { BodyMsg: msg.message, msg, msgType });
-      Sentry.captureException(new Error("Novo Tipo de Mensagem em isValidMsg"));
+      Sentry.captureException(new Error("Nuevo Tipo de Mensage en isValidMsg"));
     }
 
     return !!ifType;
@@ -946,7 +946,7 @@ const verifyQueue = async (
 
     const listMessage = {
       text: formatBody(`\u200e${greetingMessage}`, contact),
-      buttonText: "Escolha uma opção",
+      buttonText: "Escoja una opción",
       sections
     };
 
@@ -1036,7 +1036,7 @@ const verifyQueue = async (
         (!currentSchedule || currentSchedule.inActivity === false)
       ) {
 
-        const body = formatBody(`${queue.outOfHoursMessage}\n\n*[ # ]* - Voltar ao Menu Principal`, ticket.contact);
+        const body = formatBody(`${queue.outOfHoursMessage}\n\n*[ # ]* - Volver al Menu Principal`, ticket.contact);
         const sentMessage = await wbot.sendMessage(
           `${contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"}`, {
           text: body,
@@ -1293,7 +1293,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
 
       const listMessage = {
         text: formatBody(`\u200e${queue.greetingMessage}`, ticket.contact),
-        buttonText: "Escolha uma opção",
+        buttonText: "Elige una opcion",
         sections
       };
 
@@ -1316,7 +1316,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
       });
       buttons.push({
         buttonId: `#`,
-        buttonText: { displayText: "Voltar Menu Inicial" },
+        buttonText: { displayText: "Volver al Menu Inicial" },
         type: 4
       });
 
@@ -1340,7 +1340,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
       queueOptions.forEach((option, i) => {
         options += `*[ ${option.option} ]* - ${option.title}\n`;
       });
-      options += `\n*[ # ]* - Voltar Menu Inicial`;
+      options += `\n*[ # ]* - Volver al Menu Inicial`;
 
       const textMessage = {
         text: formatBody(`\u200e${queue.greetingMessage}\n\n${options}`, ticket.contact),
@@ -1399,7 +1399,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
           });
         });
         sectionsRows.push({
-          title: "Voltar Menu Inicial",
+          title: "Volver al Menu Inicial",
           rowId: `#`
         });
         const sections = [
@@ -1410,7 +1410,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
 
         const listMessage = {
           text: formatBody(`\u200e${currentOption.message}`, ticket.contact),
-          buttonText: "Escolha uma opção",
+          buttonText: "Escoja una opcion",
           sections
         };
 
@@ -1433,7 +1433,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
         });
         buttons.push({
           buttonId: `#`,
-          buttonText: { displayText: "Voltar Menu Inicial" },
+          buttonText: { displayText: "Volver al Menu Inicial" },
           type: 4
         });
 
@@ -1458,7 +1458,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
         queueOptions.forEach((option, i) => {
           options += `*[ ${option.option} ]* - ${option.title}\n`;
         });
-        options += `\n*[ # ]* - Voltar Menu Inicial`;
+        options += `\n*[ # ]* - Vover al Menu Inicial`;
 
         const textMessage = {
           text: formatBody(`\u200e${currentOption.message}\n\n${options}`, ticket.contact),
@@ -1595,7 +1595,7 @@ const handleMessage = async (
 
     const ticket = await FindOrCreateTicketService(contact, wbot.id!, unreadMessages, companyId, groupContact);
 
-    // voltar para o menu inicial
+    // volver al menu inicial
 
     if (bodyMessage == "#") {
       await ticket.update({
@@ -1616,20 +1616,20 @@ const handleMessage = async (
     try {
       if (!msg.key.fromMe) {
         /**
-         * Tratamento para avaliação do atendente
+         * Tratamiento para la evaluación asistente
          */
 
-        // dev Ricardo: insistir a responder avaliação
+        // dev Ricardo: Insistir en responder la evaluación
         const rate_ = Number(bodyMessage);
 
-        if ((ticket?.lastMessage.includes('_Insatisfeito_') || ticket?.lastMessage.includes('Por favor avalie nosso atendimento.')) && (!isFinite(rate_))) {
+        if ((ticket?.lastMessage.includes('_Insatisfecho_') || ticket?.lastMessage.includes('Por favor evalue nuestra atencion.')) && (!isFinite(rate_))) {
           const debouncedSentMessage = debounce(
             async () => {
               await wbot.sendMessage(
                 `${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"
                 }`,
                 {
-                  text: 'Por favor avalie nosso atendimento.'
+                  text: 'Por favor avalue nuestra atencion.'
                 }
               );
             },
@@ -1674,7 +1674,7 @@ const handleMessage = async (
     try {
       if (!msg.key.fromMe && scheduleType) {
         /**
-         * Tratamento para envio de mensagem quando a empresa está fora do expediente
+         * Tratamiento para el envío de mensajes cuando la empresa se encuentra fuera del horario comercial
          */
         if (
           scheduleType.value === "company" &&
@@ -1704,7 +1704,7 @@ const handleMessage = async (
         if (scheduleType.value === "queue" && ticket.queueId !== null) {
 
           /**
-           * Tratamento para envio de mensagem quando a fila está fora do expediente
+           * Tratamiento para enviar un mensaje cuando la cola está fuera de horario
            */
           const queue = await Queue.findByPk(ticket.queueId);
 
@@ -1791,7 +1791,7 @@ const handleMessage = async (
       //Fluxo fora do expediente
       if (!msg.key.fromMe && scheduleType && ticket.queueId !== null) {
         /**
-         * Tratamento para envio de mensagem quando a fila está fora do expediente
+         * Tratamiento para enviar un mensaje cuando la cola está fuera de horario
          */
         const queue = await Queue.findByPk(ticket.queueId);
 
@@ -1943,7 +1943,7 @@ const verifyRecentCampaign = async (
   if (!message.key.fromMe) {
     const number = message.key.remoteJid.replace(/\D/g, "");
     const campaigns = await Campaign.findAll({
-      where: { companyId, status: "EM_ANDAMENTO", confirmation: true },
+      where: { companyId, status: "EN_PROCESO", confirmation: true },
     });
     if (campaigns) {
       const ids = campaigns.map((c) => c.id);
