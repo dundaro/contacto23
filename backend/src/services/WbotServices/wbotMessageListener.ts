@@ -1199,13 +1199,13 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
   const messageBody = getBodyMessage(msg);
 
   if (messageBody == "#") {
-    // volver para o menu inicial
+    // volver para menu inicial
     await ticket.update({ queueOptionId: null, chatbot: false, queueId: null });
     await verifyQueue(wbot, msg, ticket, ticket.contact);
     return;
   }
 
-  // volver para o menu anterior
+  // volver para menu anterior
   if (!isNil(queue) && !isNil(ticket.queueOptionId) && messageBody == "#") {
     const option = await QueueOption.findByPk(ticket.queueOptionId);
     await ticket.update({ queueOptionId: option?.parentId });
