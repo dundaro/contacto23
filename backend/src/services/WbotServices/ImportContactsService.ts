@@ -23,10 +23,10 @@ const ImportContactsService = async (companyId: number): Promise<void> => {
     const beforeFilePath = path.join(publicFolder, 'contatos_antes.txt');
     fs.writeFile(beforeFilePath, JSON.stringify(phoneContacts, null, 2), (err) => {
       if (err) {
-        logger.error(`Failed to write contacts to file: ${err}`);
+        logger.error(`No se pudieron escribir los contactos en archivo: ${err}`);
         throw err;
       }
-      console.log('O arquivo contatos_antes.txt foi criado!');
+      console.log('El archivo contatos_antes.txt fue creado!');
     });
 
   } catch (err) {
@@ -41,7 +41,7 @@ const ImportContactsService = async (companyId: number): Promise<void> => {
       logger.error(`Failed to write contacts to file: ${err}`);
       throw err;
     }
-    console.log('O arquivo contatos_depois.txt foi criado!');
+    console.log('El arcuivo contatos_depois.txt fue creado!');
   });
 
   const phoneContactsList = isString(phoneContacts)
