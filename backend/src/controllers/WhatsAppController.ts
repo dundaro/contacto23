@@ -281,7 +281,7 @@ export const remove = async (
     });
    
     if (openTickets.length>0) {
-      throw new AppError("Não é possível remover conexão que contém tickets não resolvidos");
+      throw new AppError("No se puede eliminar la conexión que contiene tickets sin resolver");
     }
    
     await DeleteBaileysService(whatsappId);
