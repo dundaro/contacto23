@@ -166,7 +166,7 @@ export const mediaUpload = async (
       record: announcement
     });
 
-    return res.send({ mensagem: "Mensagem enviada" });
+    return res.send({ mensagem: "Mensage enviado" });
   } catch (err: any) {
     throw new AppError(err.message);
   }
