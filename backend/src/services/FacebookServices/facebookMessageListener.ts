@@ -293,7 +293,7 @@ const verifyQueue = async (
         const endTime = moment(schedule.endTime, "HH:mm");
 
         if (now.isBefore(startTime) || now.isAfter(endTime)) {
-          const body = formatBody(`${queue.outOfHoursMessage}\n\n*[ # ]* - Voltar ao Menu Principal`, ticket.contact);
+          const body = formatBody(`${queue.outOfHoursMessage}\n\n*[ # ]* - Volver al menú principal`, ticket.contact);
 
           const sentMessage = await sendFaceMessage({
             ticket,
@@ -363,7 +363,7 @@ const handleChartbot = async (ticket: Ticket, msg: string, wbot: any, dontReadTh
       const endTime = moment(schedule.endTime, "HH:mm");
 
       if (now.isBefore(startTime) || now.isAfter(endTime)) {
-        const body = formatBody(`${ticket.queue.outOfHoursMessage}\n\n*[ # ]* - Voltar ao Menu Principal`, ticket.contact);
+        const body = formatBody(`${ticket.queue.outOfHoursMessage}\n\n*[ # ]* - Volver al menú principal`, ticket.contact);
 
 
 
