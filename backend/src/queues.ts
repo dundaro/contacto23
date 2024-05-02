@@ -642,12 +642,12 @@ async function handleInvoiceCreate() {
           const mailOptions = {
             from: 'heenriquega@gmail.com', // sender address
             to: `${c.email}`, // receiver (use array of string for a list)
-            subject: 'Fatura gerada - Sistema', // Subject line
-            html: `Olá ${c.name} esté é um email sobre sua fatura!<br>
+            subject: 'Factura gerada - Sistema', // Subject line
+            html: `Olá ${c.name} estees un email sobre su factura!<br>
 <br>
 Vencimento: ${vencimento}<br>
 Valor: ${plan.value}<br>
-Link: ${process.env.FRONTEND_URL}/financeiro<br>
+Link: ${process.env.FRONTEND_URL}/financiero<br>
 <br>
 Cualquier duda estamos para atenderle!
             `// plain text body
