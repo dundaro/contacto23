@@ -56,7 +56,7 @@ class Campaign extends Model<Campaign> {
   confirmationMessage5: string;
 
   @Column({ defaultValue: "INATIVA" })
-  status: string; // INATIVA, PROGRAMADA, EM_ANDAMENTO, CANCELADA, FINALIZADA
+  status: string; // INACTIVA, PROGRAMADA, EN_PROCESO, CANCELADA, FINALIZADA
 
   @Column
   confirmation: boolean;
