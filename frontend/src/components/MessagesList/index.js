@@ -700,7 +700,7 @@ const MessagesList = ({ ticket, ticketId, isGroup }) => {
         <a
           style={{ fontWeight: '700', color: 'gray' }}
           target="_blank"
-          href={message.split('|')[1]}> Clique para ver localização</a>
+          href={message.split('|')[1]}> Click para ver localización</a>
         <span className={classes.timestamp}>
           {format(parseISO(createdAt), "HH:mm")}
         </span>
