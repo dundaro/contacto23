@@ -72,7 +72,7 @@ async function handleSendMessage(job) {
     const whatsapp = await Whatsapp.findByPk(data.whatsappId);
 
     if (whatsapp == null) {
-      throw Error("Whatsapp não identificado");
+      throw Error("Whatsapp no identificado");
     }
 
     const messageData: MessageData = data.data;
@@ -89,7 +89,7 @@ async function handleVerifySchedules(job) {
   try {
     const { count, rows: schedules } = await Schedule.findAndCountAll({
       where: {
-        status: "PENDENTE",
+        status: "PENDIENTE",
         sentAt: null,
         sendAt: {
           [Op.gte]: moment().format("YYYY-MM-DD HH:mm:ss"),
@@ -128,7 +128,7 @@ async function handleSendScheduledMessage(job) {
     scheduleRecord = await Schedule.findByPk(schedule.id);
   } catch (e) {
     Sentry.captureException(e);
-    logger.info(`Erro ao tentar consultar agendamento: ${schedule.id}`);
+    logger.info(`Error intentar consultar agenda: ${schedule.id}`);
   }
 
   try {
@@ -144,12 +144,12 @@ async function handleSendScheduledMessage(job) {
       status: "ENVIADA"
     });
 
-    logger.info(`Mensagem agendada enviada para: ${schedule.contact.name}`);
+    logger.info(`Mensage agendado enviado para: ${schedule.contact.name}`);
     sendScheduledMessages.clean(15000, "completed");
   } catch (e: any) {
     Sentry.captureException(e);
     await scheduleRecord?.update({
-      status: "ERRO"
+      status: "ERROR"
     });
     logger.error("SendScheduledMessage -> SendMessage: error", e.message);
     throw e;
@@ -167,14 +167,14 @@ async function handleVerifyCampaigns(job) {
     where "scheduledAt" between now() and now() + '1 hour'::interval and status = 'PROGRAMADA'`,
       { type: QueryTypes.SELECT }
     );
-  logger.info(`Campanhas encontradas: ${campaigns.length}`);
+  logger.info(`Campañas encontradas: ${campaigns.length}`);
   for (let campaign of campaigns) {
     try {
       const now = moment();
       const scheduledAt = moment(campaign.scheduledAt);
       const delay = scheduledAt.diff(now, "milliseconds");
       logger.info(
-        `Campanha enviada para a fila de processamento: Campanha=${campaign.id}, Delay Inicial=${delay}`
+        `Campaña enviada para  fila de procesamento: Campanha=${campaign.id}, Delay Inicial=${delay}`
       );
       campaignQueue.add(
         "ProcessCampaign",
@@ -426,7 +426,7 @@ async function handleProcessCampaign(job) {
           );
 
           logger.info(
-            `Registro enviado pra fila de disparo: Campanha=${campaign.id};Contato=${contact.name};delay=${delay}`
+            `Registro enviado para fila de disparo: Campanha=${campaign.id};Contato=${contact.name};delay=${delay}`
           );
           index++;
           if (index % settings.longerIntervalAfter === 0) {
@@ -438,7 +438,7 @@ async function handleProcessCampaign(job) {
             );
           }
         }
-        await campaign.update({ status: "EM_ANDAMENTO" });
+        await campaign.update({ status: "EN_PROCESO" });
       }
     }
   } catch (err: any) {
@@ -534,7 +534,7 @@ async function handleDispatchCampaign(job) {
     const wbot = await GetWhatsappWbot(campaign.whatsapp);
 
     logger.info(
-      `Disparo de campanha solicitado: Campanha=${campaignId};Registro=${campaignShippingId}`
+      `Disparo de campaña solicitado: Campanha=${campaignId};Registro=${campaignShippingId}`
     );
 
     const campaignShipping = await CampaignShipping.findByPk(
@@ -591,7 +591,7 @@ async function handleLoginStatus(job) {
     try {
       const user = await User.findByPk(item.id);
       await user.update({ online: false });
-      logger.info(`Usuário passado para offline: ${item.id}`);
+      logger.info(`Usuário pasado para offline: ${item.id}`);
     } catch (e: any) {
       Sentry.captureException(e);
     }
@@ -649,7 +649,7 @@ Vencimento: ${vencimento}<br>
 Valor: ${plan.value}<br>
 Link: ${process.env.FRONTEND_URL}/financeiro<br>
 <br>
-Qualquer duvida estamos a disposição!
+Cualquier duda estamos para atenderle!
             `// plain text body
           };
 
@@ -677,7 +677,7 @@ Qualquer duvida estamos a disposição!
 handleInvoiceCreate()
 
 export async function startQueueProcess() {
-  logger.info("Iniciando processamento de filas");
+  logger.info("Iniciando procesamiento de filas");
 
   messageQueue.process("SendMessage", handleSendMessage);
 
