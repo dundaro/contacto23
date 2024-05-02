@@ -127,7 +127,7 @@ export const cancel = async (
 
   await CancelService(+id);
 
-  return res.status(204).json({ message: "Cancelamento realizado" });
+  return res.status(204).json({ message: "Cancelamiento realizado" });
 };
 
 export const restart = async (
@@ -138,7 +138,7 @@ export const restart = async (
 
   await RestartService(+id);
 
-  return res.status(204).json({ message: "Reinício dos disparos" });
+  return res.status(204).json({ message: "Reinício de disparos" });
 };
 
 export const remove = async (
@@ -205,7 +205,7 @@ export const deleteMedia = async (
     campaign.mediaPath = null;
     campaign.mediaName = null;
     await campaign.save();
-    return res.send({ mensagem: "Arquivo excluído" });
+    return res.send({ mensagem: "Archivo excluído" });
   } catch (err: any) {
     throw new AppError(err.message);
   }
