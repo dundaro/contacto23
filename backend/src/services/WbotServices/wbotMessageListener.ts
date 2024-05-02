@@ -1282,7 +1282,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
         });
       });
       sectionsRows.push({
-        title: "Voltar Menu Inicial",
+        title: "Volver al Menu Inicial",
         rowId: `#`
       });
       const sections = [
