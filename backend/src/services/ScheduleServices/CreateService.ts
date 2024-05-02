@@ -36,7 +36,7 @@ const CreateService = async ({
       contactId,
       companyId,
       userId,
-      status: 'PENDENTE'
+      status: 'PENDIENTE'
     }
   );
 
