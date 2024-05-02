@@ -77,7 +77,7 @@ const   UpdateTicketService = async ({
     
     if (tokenData && ticket.status !== "pending") {
       if (tokenData.profile !== "admin" && ticket.userId !== parseInt(tokenData.id)) {
-        throw new AppError("Apenas o usuário ativo do ticket ou o Admin podem fazer alterações no ticket");
+        throw new AppError("Sólo el usuario activo del ticket o el administrador pueden realizar cambios en el ticket");
       }
     }
     
@@ -114,7 +114,7 @@ const   UpdateTicketService = async ({
           const ratingTxt = ratingMessage || "";
           let bodyRatingMessage = `\u200e${ratingTxt}\n\n`;
           bodyRatingMessage +=
-            "Digite de 1 à 3 para qualificar nosso atendimento:\n*1* - _Insatisfeito_\n*2* - _Satisfeito_\n*3* - _Muito Satisfeito_\n\n";
+            "Digite de 1 à 3 para qualificar nosso atendimento:\n*1* - _Insatisfecho_\n*2* - _Satisfecho_\n*3* - _Muy Satisfeito_\n\n";
 
           if (ticket.channel === "whatsapp") {
             await SendWhatsAppMessage({ body: bodyRatingMessage, ticket });
@@ -195,7 +195,7 @@ const   UpdateTicketService = async ({
             `${ticket.contact.number}@${ticket.isGroup ? "g.us" : "s.whatsapp.net"
             }`,
             {
-              text: "\u200eVocê foi transferido, em breve iremos iniciar seu atendimento."
+              text: "\u200eHas sido transferido, pronto comenzaremos tu servicio."
             }
           );
           await verifyMessage(queueChangedMessage, ticket, ticket.contact);
@@ -206,7 +206,7 @@ const   UpdateTicketService = async ({
 
       if (["facebook", "instagram"].includes(ticket.channel)) {
         console.log(`Checking if ${ticket.contact.number} is a valid ${ticket.channel} contact`)
-        await sendFaceMessage({ body: "\u200eVocê foi transferido, em breve iremos iniciar seu atendimento.", ticket });
+        await sendFaceMessage({ body: "\u200eHas sido transferido, pronto comenzaremos tu servicio.", ticket });
       }
     }
 
