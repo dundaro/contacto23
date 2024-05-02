@@ -256,7 +256,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
 
     const onCompanyAuthLayout = (data) => {
       if (data.user.id === +userId) {
-        toastError("Su cuenta fue acessada en otro computador.");
+        toastError("Su cuenta fue accesada en otro computador.");
         setTimeout(() => {
           localStorage.clear();
           window.location.reload();
