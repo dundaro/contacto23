@@ -14,8 +14,3 @@ export default {
     }
   })
 };
-
-limits: {
-    fileSize: 10 * 1024 * 1024 // Establece un límite de tamaño de 10 MB
-  }
-};
